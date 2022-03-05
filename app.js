@@ -49,7 +49,7 @@ app.post("/login",
 
 
 
-app.get("/flight-list", (req, res, next) => {
+app.get("/flight-list", isAuthorized,(req, res, next) => {
     const flightList = getFlightList();
     res.status(200).json({ message: "Flight List", data: flightList });
 })
